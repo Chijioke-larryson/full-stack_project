@@ -1,6 +1,7 @@
 import React from 'react'
 
 export const Hero = () => {
+
     return (
        <>
            <h5>Complete this training program if you want to...</h5>
