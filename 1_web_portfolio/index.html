@@ -22,7 +22,7 @@
 <main>
     <section>
         <div class="intro-header">
-            <h1> Bonjour!, i'm Chijioke...</h1>
+            <h1> Bonjour!, I'm Chijioke...</h1>
             <p>Software Developer</p>
 
         </div>
@@ -41,15 +41,15 @@
         </div>
 
         <div id="play-game">
-            <button onclick="">Play game???</button>
+            <button onclick="playGame()">Play game???</button>
         </div>
 
         <div  style="display: none;" class="color-div">
             <h4>Pick a color</h4>
             <p style="display: none;">Great... now it's ruined!</p>
-            <input type="color" id="color-picker" onchange=""
+            <input type="color" id="color-picker" onchange="changeColor()"
             value="#0084ff"/>
-            <button style="display: none;" onclick="">Reset</button>
+            <button style="display: none;" onclick="resetColor()">Reset</button>
 
         </div>
 
@@ -60,19 +60,161 @@
         <h2>Skills</h2>
         <table>
             <thead>
+            <tr>
+                <th>Area</th>
+                <th>Technologies</th>
+            </tr>
 
             </thead>
-            <tbody></tbody>
+            <tbody>
+            <tr>
+                <td>JavaScrip</td>
+                <td>ReactJS | React Native | NextJS | NodeJs  | ExpressJS | Qwik </td>
+            </tr>
+            <tr>
+                <td>Python</td>
+                <td>Data analysis | Django | Data visualization</td>
+            </tr>
+            <tr>
+                <td>Web</td>
+                <td>TailwindCSS | FantaCSS | Firebase | PostgresSQl | CI/CD | GIT| Docker | AWS </td>
+            </tr>
+            <tr>
+                <td>Design</td>
+                <td>Canvas | Pixlr | Microsoft Paint | Figma  </td>
+            </tr>
+
+            </tbody>
         </table>
 
 
+
+    </section>
+
+    <section>
+        <h2>Latest Projects</h2>
+        <div class="cards-grid">
+            <div class="project-card">
+                <div>
+                    <p>June 25, 2025</p>
+                    <h4>Chijioke L</h4>
+                    <div class="tech-list">
+                        <div class="card-button-secondary">
+                            <p>NextJS</p>
+                        </div>
+                        <div class="card-button-secondary">
+                            <p>NextJS</p>
+                        </div>
+                        <div class="card-button-secondary">
+                            <p>NextJS</p>
+                        </div>
+                    </div>
+                    <p>Chijioke L is a hub for all things to become a software developer</p>
+                    <div class="project-links">
+                        <a target="_blank" href="/">Live</a>
+                        <a target="_blank" href="/">GitHub</a>
+
+                    </div>
+                </div>
+                <div  class="img-div"></div>
+                <img class="big-img" src="/1_web_portfolio/public" alt="Chijioke L thumbnail">
+
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <p>June 25, 2025</p>
+                    <h4>Chijioke L</h4>
+                    <div class="tech-list">
+                        <div class="card-button-secondary">
+                            <p>NextJS</p>
+                        </div>
+                        <div class="card-button-secondary">
+                            <p>NextJS</p>
+                        </div>
+                        <div class="card-button-secondary">
+                            <p>NextJS</p>
+                        </div>
+                    </div>
+                    <p>Chijioke L is a hub for all things to become a software developer</p>
+                    <div class="project-links">
+                        <a target="_blank" href="/">Live</a>
+                        <a target="_blank" href="/">GitHub</a>
+
+                    </div>
+                </div>
+                <div  class="image-div"></div>
+                <img class="big-img" src="/1_web_portfolio/public" alt="Chijioke L thumbnail">
+
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <p>June 25, 2025</p>
+                    <h4>Chijioke L</h4>
+                    <div class="tech-list">
+                        <div class="card-button-secondary">
+                            <p>NextJS</p>
+                        </div>
+                        <div class="card-button-secondary">
+                            <p>NextJS</p>
+                        </div>
+                        <div class="card-button-secondary">
+                            <p>NextJS</p>
+                        </div>
+                    </div>
+                    <p>Chijioke L is a hub for all things to become a software developer</p>
+                    <div class="project-links">
+                        <a target="_blank" href="/">Live</a>
+                        <a target="_blank" href="/">GitHub</a>
+
+                    </div>
+                </div>
+                <div  class="image-div"></div>
+                <img class="big-img" src="/1_web_portfolio/public" alt="Chijioke L thumbnail">
+
+            </div>
+
+
+        </div>
 
     </section>
 </main>
 <footer>
     <p>By <a target="_blank" href="/">Chijioke L</a> ⭐️ the repo on <a target="_blank" href="">GitHub</a></p>
 </footer>
-<script></script>
+<script>
+     const body = document.querySelector("body")
+     const colorInput = document.getElementById("color-picker")
+     const colorDiv = document.querySelector(".color-div")
+     const hiddenText = document.querySelector('.color-div p ')
+     const resetBtn = document.querySelector(".color-div button")
+     const playBtn = document.getElementById('play-game')
+
+     function  playGame() {
+         colorDiv.style.display ='block'
+         playBtn.style.display ='none'
+     }
+     function changeColor() {
+         const selectedColor = colorInput.value
+         body.style.background = selectedColor
+         resetBtn.style.display ='block'
+         hiddenText.style.display ='block'
+         colorInput.style.display ='none'
+
+     }
+     function resetColor() {
+         body.style.background ='white'
+         colorInput.style.display ='block'
+         playBtn.style.display ='block'
+
+         hiddenText.style.display ='none'
+         resetBtn.style.display ='none'
+         colorDiv.style.display ='none'
+
+
+     }
+</script>
 
 </body>
 </html>
