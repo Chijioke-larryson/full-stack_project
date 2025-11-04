@@ -25,7 +25,7 @@ export const Grid = () => {
 
                 if (workoutIndex == selectedWorkout) {
                     return  (
-                       < WorkoutCard  key={workoutIndex} traingPlan ={trainingPlan}
+                       < WorkoutCard  key={workoutIndex} trainingPlan ={trainingPlan}
                        type={type} workoutIndex={workoutIndex} icon={icon} dayNum={dayNum}
                        />
                     )
@@ -44,6 +44,7 @@ export const Grid = () => {
                             <h4><b>{type}</b></h4>
 
                         </div>
+
 
                     </button>
 

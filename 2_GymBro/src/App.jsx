@@ -2,6 +2,7 @@ import {Layout} from "./components/Layout.jsx";
 import {Grid} from "./components/Grid.jsx";
 import {Hero} from "./components/Hero.jsx";
 
+
 function App() {
 
 
@@ -10,6 +11,8 @@ function App() {
      <main>
        <Hero />
        <Grid />
+
+
      </main>
    </Layout>
   )

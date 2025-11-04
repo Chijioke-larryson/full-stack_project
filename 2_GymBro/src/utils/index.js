@@ -437,4 +437,3 @@ export const exerciseDescriptions = {
     "Calf raises": "Stand on the Smith machine with the bar on your shoulders, or in a leg press with your legs almost straight, raise your heels to engage your calves, and then lower them back down.",
     "Good girls / bad girls": "Using the adductor/abductor machine, move your legs together (adductor) or apart (abductor) to target the inner and outer thighs.",
 }
-
