@@ -1,13 +1,20 @@
+
 import React from "react";
 import {Fragment} from "react";
+import {Modal} from "./Modal.jsx";
+
 
 export const WorkoutCard = (props) => {
     const { trainingPlan, workoutIndex, type, dayNum, icon } = props
 
     const { warmup, workout, } = trainingPlan || {}
 
+    const showExerciseDescription = {name: 'chijioke',description:'chijioke'}
+
     return (
         <div className="workout-container">
+            <Modal showExerciseDescription={showExerciseDescription}
+            handleClosedModal={() => {}}/>
             <div className="workout-card card">
                 <div className="plan-card-header">
                     <p>Day {dayNum}</p>
@@ -65,6 +72,8 @@ export const WorkoutCard = (props) => {
 
                     return (
                         <React.Fragment key={workoutIndex}>
+
+
                             <div className="exercise-name">
                                 <p>{workoutIndex + 1}. {workoutExercise.name}</p>
                                 <button className="help-icon">
