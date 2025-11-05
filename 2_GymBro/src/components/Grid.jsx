@@ -5,9 +5,8 @@ export const Grid = () => {
     const isLocked = false
 
     const selectedWorkout =  4
-
     return (
-        <div className="training-grid-plan">
+        <div className="training-plan-grid">
             {Object.keys(training_plan).map((workout, workoutIndex) => {
                 const type = workoutIndex % 3 == 0 ? 'Push' : workoutIndex % 3 == 1 ? 'Pull' : 'Legs'
 
