@@ -63,6 +63,7 @@ h3,
     position: relative;
     z-index: 1;
     cursor: not-allowed;
+    background: darkgreen !important;
     opacity: 0.8;
 }
 

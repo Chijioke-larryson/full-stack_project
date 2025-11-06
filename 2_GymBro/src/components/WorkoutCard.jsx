@@ -7,10 +7,21 @@ import {exerciseDescriptions} from "../utils/index.js";
 
 
 export const WorkoutCard = (props) => {
-    const { trainingPlan, workoutIndex, type, dayNum, icon } = props
+    const { trainingPlan, workoutIndex, type, dayNum, icon, savedWeights, handleSave, handleComplete } = props
 
     const { warmup, workout, } = trainingPlan || {}
     const [showExerciseDescription, setShowExerciseDescription] = useState(null)
+    const [weights, setWeights] = useState(savedWeights || {})
+
+    function handleAddWeight(title, weight) {
+        console.log(title, weight)
+        const newObj = {
+            ...weights,
+            [title]: weight
+
+        }
+        setWeights(newObj)
+    }
 
     // const showExerciseDescription = {name: 'chijioke',description:'chijioke'}
 
@@ -81,10 +92,10 @@ export const WorkoutCard = (props) => {
                 <h6>Sets</h6>
                 <h6>Reps</h6>
                 <h6 className="weight-input">Max Weight</h6>
-                {workout.map((workoutExercise, workoutIndex) => {
+                {workout.map((workoutExercise, wIndex) => {
 
                     return (
-                        <React.Fragment key={workoutIndex}>
+                        <React.Fragment key={wIndex}>
 
 
                             <div className="exercise-name">
@@ -104,7 +115,10 @@ export const WorkoutCard = (props) => {
                             </div>
                             <p className="exercise-info">{workoutExercise.sets}</p>
                             <p className="exercise-info"> {workoutExercise.reps}</p>
-                            <input className="weight-input" placeholder="14" />
+                            <input value={weights[workoutExercise.name] || '' } onChange={(e) => {
+                                handleAddWeight(workoutExercise.name, e.target.value)
+                            }}
+                                   className="weight-input" placeholder="14" />
 
                         </React.Fragment>
                     )
@@ -115,8 +129,12 @@ export const WorkoutCard = (props) => {
 
 
             <div className="workout-buttons">
-                <button>Save & Exit</button>
-                <button disabled={true}>Complete</button>
+                <button onClick={() => {
+                    handleSave(workoutIndex, {weights})
+                }}>Save & Exit</button>
+                <button  onClick={() => {
+                    handleComplete(workoutIndex, {weights})
+                }} disabled={Object.keys(weights).length !== workout.length }> Complete</button>
 
             </div>
 
