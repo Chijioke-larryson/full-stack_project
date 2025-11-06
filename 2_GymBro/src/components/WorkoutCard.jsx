@@ -1,20 +1,25 @@
 
-import React from "react";
+import React , {useState} from "react";
 import {Fragment} from "react";
 import {Modal} from "./Modal.jsx";
+import {exerciseDescriptions} from "../utils/index.js";
+
 
 
 export const WorkoutCard = (props) => {
     const { trainingPlan, workoutIndex, type, dayNum, icon } = props
 
     const { warmup, workout, } = trainingPlan || {}
+    const [showExerciseDescription, setShowExerciseDescription] = useState(null)
 
-    const showExerciseDescription = {name: 'chijioke',description:'chijioke'}
+    // const showExerciseDescription = {name: 'chijioke',description:'chijioke'}
 
     return (
         <div className="workout-container">
-            <Modal showExerciseDescription={showExerciseDescription}
-            handleClosedModal={() => {}}/>
+            { showExerciseDescription && (<Modal showExerciseDescription={showExerciseDescription}
+                    handleCloseModal={() => {
+                        setShowExerciseDescription(null)
+                    }} />)}
             <div className="workout-card card">
                 <div className="plan-card-header">
                     <p>Day {dayNum}</p>
@@ -42,7 +47,15 @@ export const WorkoutCard = (props) => {
                     <React.Fragment key={warmupIndex}>
                         <div className="exercise-name">
                             <p>{warmupIndex + 1}. {warmupExercise.name}</p>
-                            <button className="help-icon">
+                            <button onClick={()=> {
+                                setShowExerciseDescription(
+                                    {
+                                        name: warmupExercise.name,
+                                        description: exerciseDescriptions[warmupExercise.name]
+                                    }
+
+                                )
+                            }} className="help-icon">
                                 <i className="fa-regular fa-circle-question"/>
                             </button>
 
@@ -76,7 +89,15 @@ export const WorkoutCard = (props) => {
 
                             <div className="exercise-name">
                                 <p>{workoutIndex + 1}. {workoutExercise.name}</p>
-                                <button className="help-icon">
+                                <button onClick={()=> {
+                                    setShowExerciseDescription(
+                                        {
+                                            name: workoutExercise.name,
+                                            description: exerciseDescriptions[workoutExercise.name]
+                                        }
+
+                                    )
+                                }}className="help-icon">
                                     <i className="fa-regular fa-circle-question" />
                                 </button>
 

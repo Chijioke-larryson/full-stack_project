@@ -9,7 +9,7 @@ export const Modal = (props) => {
     return ReactDom.createPortal((
         <div className="modal-container">
             <button className="modal-underlay" onClick={handleCloseModal}/>
-            <div className="model-content">
+            <div className="modal-content">
                 <div>
                     <h6>Name</h6>
                     <h2 className="skill-name">{name.replaceAll('-',' ')}</h2>
